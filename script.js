@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const slider = document.querySelector('#grid-range');
 const rainbow = document.querySelector('#random-color');
+const darkening = document.querySelector('#progressive-opacity');
 
 function createGrid(size) {
     const maxWidth = 600;
@@ -26,6 +27,14 @@ function paint() {
     rainbow.addEventListener('click', () => {
         gridSquares.forEach(target => target.addEventListener('mouseover', () => {
             target.style.backgroundColor = randomColor();
+        }));
+    });
+
+    darkening.addEventListener('click', () => {
+        gridSquares.forEach(target => target.addEventListener('mouseover', () => {
+            let inc = 0.1;
+            inc += 0.2;
+            target.style.backgroundColor = `rgba(0,0,0,${inc})`;
         }));
     });
 
