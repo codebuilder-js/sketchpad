@@ -103,12 +103,25 @@ function createGrid(size) {
     }
 }
 
-function paint() {
+function paint(color) {
     const gridSquares = document.querySelectorAll('.paint');
 
     gridSquares.forEach(target => target.addEventListener('mouseover', () => {
         target.style.backgroundColor = 'black';
     }));
+}
+
+function randomNumber() {
+    return Math.floor(Math.random() * 256);
+}
+
+function randomColor() {
+    const red = randomNumber(),
+          green = randomNumber(),
+          blue = randomNumber();
+    const rgbColor = `rgb(${red}, ${green}, ${blue})`;
+
+    return rgbColor;
 }
 
 slider.addEventListener('input', (e) => {
