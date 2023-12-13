@@ -20,8 +20,14 @@ function createGrid(size) {
     }
 }
 
-function paint(color) {
+function paint() {
     const gridSquares = document.querySelectorAll('.paint');
+
+    rainbow.addEventListener('click', () => {
+        gridSquares.forEach(target => target.addEventListener('mouseover', () => {
+            target.style.backgroundColor = randomColor();
+        }));
+    });
 
     gridSquares.forEach(target => target.addEventListener('mouseover', () => {
         target.style.backgroundColor = 'black';
